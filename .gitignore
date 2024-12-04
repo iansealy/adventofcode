@@ -104,7 +104,3 @@ venv.bak/
 .mypy_cache/
 
 # End of https://www.gitignore.io/api/python
-
-# don't include actual puzzle inputs
-# https://old.reddit.com/r/adventofcode/wiki/troubleshooting/no_asking_for_inputs
-input.txt

@@ -58,9 +58,8 @@ def main(
         if day is None:
             year_dir = Path(f"solutions/{year}")
             day = next_day(year_dir)
-        else:
-            if not 1 <= day <= 25:
-                PARSER.error(f"day {day} is not in range [1,25]")
+        elif not 1 <= day <= 25:
+            PARSER.error(f"day {day} is not in range [1,25]")
 
         solution_class = cast(
             Type[BaseSolution],
