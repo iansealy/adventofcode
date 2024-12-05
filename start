@@ -43,6 +43,7 @@ if __name__ == "__main__":
                 [
                     f"# Day {day} ({ARGS.year})",
                     f"https://adventofcode.com/{ARGS.year}/day/{day}",
+                    "",
                 ]
             )
         )
