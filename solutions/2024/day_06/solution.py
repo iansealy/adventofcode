@@ -51,10 +51,10 @@ class Solution(StrSplitSolution):
                 cur_i = next_i
                 cur_j = next_j
                 grid1[cur_i] = grid1[cur_i][:cur_j] + "X" + grid1[cur_i][cur_j + 1 :]
-            # Count visited locations
-            visited_count = 0
-            for i in range(len(grid1)):
-                visited_count += grid1[i].count("X")
+        # Count visited locations
+        visited_count = 0
+        for i in range(len(grid1)):
+            visited_count += grid1[i].count("X")
 
         loop_count = 0
         for obstruct_i in range(len(grid1)):
