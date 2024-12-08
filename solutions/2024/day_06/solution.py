@@ -14,6 +14,8 @@ class Solution(StrSplitSolution):
     @answer((4939, 1434))
     def solve(self) -> tuple[int, int]:
         grid1 = deepcopy(self.input)
+        i_range = len(grid1)
+        j_range = len(grid1[0])
         directions = (
             (-1, 0),
             (0, 1),
@@ -24,8 +26,8 @@ class Solution(StrSplitSolution):
         start_i = 0  # Row
         start_j = 0  # Col
         # Find start
-        for i in range(len(grid1)):
-            for j in range(len(grid1[i])):
+        for i in range(i_range):
+            for j in range(j_range):
                 if grid1[i][j] == "^":
                     start_i = i
                     start_j = j
@@ -36,12 +38,7 @@ class Solution(StrSplitSolution):
             next_i = cur_i + directions[cur_dir][0]
             next_j = cur_j + directions[cur_dir][1]
             # Check if outside grid
-            if (
-                next_i < 0
-                or next_i >= len(grid1)
-                or next_j < 0
-                or next_j >= len(grid1[next_i])
-            ):
+            if next_i < 0 or next_i >= i_range or next_j < 0 or next_j >= j_range:
                 break
             if grid1[next_i][next_j] == "#":
                 # Need to turn instead
@@ -53,12 +50,12 @@ class Solution(StrSplitSolution):
                 grid1[cur_i] = grid1[cur_i][:cur_j] + "X" + grid1[cur_i][cur_j + 1 :]
         # Count visited locations
         visited_count = 0
-        for i in range(len(grid1)):
+        for i in range(i_range):
             visited_count += grid1[i].count("X")
 
         loop_count = 0
-        for obstruct_i in range(len(grid1)):
-            for obstruct_j in range(len(grid1[obstruct_i])):
+        for obstruct_i in range(i_range):
+            for obstruct_j in range(j_range):
                 # No obstruction at start location
                 if obstruct_i == start_i and obstruct_j == start_j:
                     continue
@@ -85,9 +82,9 @@ class Solution(StrSplitSolution):
                     # Check if outside grid
                     if (
                         next_i < 0
-                        or next_i >= len(grid2)
+                        or next_i >= i_range
                         or next_j < 0
-                        or next_j >= len(grid2[next_i])
+                        or next_j >= j_range
                     ):
                         break
                     if grid2[next_i][next_j] == "#":
