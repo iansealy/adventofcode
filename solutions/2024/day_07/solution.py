@@ -20,8 +20,12 @@ class Solution(StrSplitSolution):
             for num in nums:
                 new_values = []
                 for value in values:
-                    new_values.append(value + num)
-                    new_values.append(value * num)
+                    new_value = value + num
+                    if new_value <= test_value:
+                        new_values.append(new_value)
+                    new_value = value * num
+                    if new_value <= test_value:
+                        new_values.append(new_value)
                 values = new_values
             if test_value in values:
                 total_calibration += test_value
@@ -38,14 +42,16 @@ class Solution(StrSplitSolution):
             for num in nums:
                 new_values = []
                 for value in values:
-                    new_values.append(value + num)
-                    new_values.append(value * num)
-                    new_values.append(int(str(value) + str(num)))
+                    new_value = value + num
+                    if new_value <= test_value:
+                        new_values.append(new_value)
+                    new_value = value * num
+                    if new_value <= test_value:
+                        new_values.append(new_value)
+                    new_value = int(str(value) + str(num))
+                    if new_value <= test_value:
+                        new_values.append(new_value)
                 values = new_values
             if test_value in values:
                 total_calibration += test_value
         return total_calibration
-
-    # @answer((1234, 4567))
-    # def solve(self) -> tuple[int, int]:
-    #     pass
