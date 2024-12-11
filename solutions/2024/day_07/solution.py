@@ -31,7 +31,7 @@ class Solution(StrSplitSolution):
                 total_calibration += test_value
         return total_calibration
 
-    # @answer(1234)
+    @answer(249943041417600)
     def part_2(self) -> int:
         total_calibration = 0
         for line in self.input:
