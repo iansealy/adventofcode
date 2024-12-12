@@ -35,7 +35,7 @@ class Solution(StrSplitSolution):
 
         return total_score, total_rating
 
-    def climb_trail(self, i, j, height) -> set:
+    def climb_trail(self, i, j, height) -> tuple[set, list]:
         # Base case
         if self.input[i][j] == "9":
             return {(i, j)}, [(i, j)]
